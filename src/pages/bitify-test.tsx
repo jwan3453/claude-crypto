@@ -4,12 +4,11 @@
 // Frame: 360×800, bg #030313, accent #FF2CDF, purple #704EF4
 // MCP-parsed: 2026-03-08
 
-import Head from "next/head";
 
 const PINK = "#FF2CDF";
 const PURPLE = "#704EF4";
 const BG = "#030313";
-const CARD_BG = "#221F3A";
+// const CARD_BG = "#221F3A"; // used inline as rgba
 const NAV_BG = "#393A65";
 const TEXT_SECONDARY = "#B9C1D9";
 const TEXT_GRAY = "#6C757D";
@@ -218,16 +217,7 @@ function LineChart() {
 // ─── Main page ────────────────────────────────────────────────────────────────
 export default function BitifyTest() {
   return (
-    <>
-      <Head>
-        <title>Bitify Trading</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Livvic:wght@600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <div
+    <div
         className="min-h-screen flex items-start justify-center"
         style={{ background: "#08081a", fontFamily: "'Poppins', sans-serif" }}
       >
@@ -720,7 +710,6 @@ export default function BitifyTest() {
             </div>
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 }
