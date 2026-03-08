@@ -4,15 +4,18 @@
 
 import Head from "next/head";
 
+// ─── Figma MCP asset URLs ──────────────────────────────────────────────────────
+const imgMeshGradient = "https://www.figma.com/api/mcp/asset/6672b415-f2a3-421e-92e7-65f7cc7be4cd";
+const imgAvatar = "https://www.figma.com/api/mcp/asset/279a1b33-da5e-4cb2-9e72-c6a6a9e969b6";
+
 // ─── Colors ───────────────────────────────────────────────────────────────────
 const BG = "#070707";
 const ACCENT = "#6552fe";
-const VIOLET = "#9c4fff";
-const TEXT_MUTED = "#6c757d";
+const TEXT_MUTED = "#6c7580";
 const ICON_BG = "#212125";
 const TAB_BG = "#121212";
 const SPARKLINE_GREEN = "#48d49e";
-const SPARKLINE_RED = "#ff8265";
+const SPARKLINE_RED = "#ff8266";
 
 // ─── SVG Icons ────────────────────────────────────────────────────────────────
 function SettingsIcon() {
@@ -50,6 +53,7 @@ function ArrowUpIcon() {
   );
 }
 
+// Ethereum diamond icon — pure SVG vectors matching Figma white shapes
 function EthIcon() {
   return (
     <svg width="22" height="30" viewBox="0 0 22 30" fill="none">
@@ -61,10 +65,10 @@ function EthIcon() {
   );
 }
 
+// Bitcoin icon — white B on orange circle
 function BtcIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="12" fill="#F7931A" />
       <path
         d="M16.5 10.5c.2-1.4-.9-2.1-2.4-2.6l.5-2.1-1.3-.3-.5 2-.9-.2.5-2-1.3-.3-.5 2c-.3-.1-.5-.1-.8-.2l-1.7-.4-.3 1.4s.9.2.9.2c.5.1.6.5.6.8l-.7 2.7c0 0 .1 0 .1 0s-.1 0-.1 0l-.9 3.5c-.1.2-.3.5-.7.4L7 15.1l-.7 1.5 1.6.4c.3.1.6.1.9.2l-.5 2.1 1.3.3.5-2.1c.3.1.7.2 1 .2l-.5 2 1.3.3.5-2.1c2.4.4 4.2.2 5-2 .6-1.8 0-2.8-1.4-3.5.9-.2 1.7-.9 1.2-1.9zm-2.4 3.7c-.5 1.8-3.3.8-4.2.6l.7-2.9c.9.2 4 .6 3.5 2.3zm.5-3.7c-.4 1.6-2.8.8-3.5.6l.7-2.6c.8.2 3.3.4 2.8 2z"
         fill="white"
@@ -73,40 +77,41 @@ function BtcIcon() {
   );
 }
 
+// Litecoin icon — white L on blue circle
 function LtcIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="12" fill="#345D9D" />
-      <path
-        d="M13 5.5h-2.5L8 13.5h3l-.8 3.5H17l.5-2h-5.5l.8-3.5h3l.5-2h-3L13 5.5z"
-        fill="white"
-      />
-    </svg>
-  );
-}
-
-function XrpIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="12" fill="#346AA9" />
-      <path
-        d="M16.5 6h2.5l-4.5 4.5c-1.1 1.1-3 1.1-4.1 0L5.9 6H8.5L11.4 9c.3.3.9.3 1.2 0L15.5 6z"
-        fill="white"
-      />
-      <path
-        d="M8.5 18h-2.5l4.5-4.5c1.1-1.1 3-1.1 4.1 0l4.5 4.5H16.5L13.6 15c-.3-.3-.9-.3-1.2 0L9.5 18z"
-        fill="white"
-      />
-    </svg>
-  );
-}
-
-function HomeTabIcon({ active }: { active: boolean }) {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <path
+        d="M13 4.5h-2.5L8 12.5h3l-.8 3.5H17l.5-2h-5.5l.8-3.5h3l.5-2h-3L13 4.5z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+// XRP icon — white X shape
+function XrpIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <path
+        d="M15.5 5h2.5l-4.5 4.5c-1.1 1.1-3 1.1-4.1 0L5.9 5H8.5L11.4 8c.3.3.9.3 1.2 0L15.5 5z"
+        fill="white"
+      />
+      <path
+        d="M8.5 17h-2.5l4.5-4.5c1.1-1.1 3-1.1 4.1 0l4.5 4.5H16.5L13.6 14c-.3-.3-.9-.3-1.2 0L9.5 17z"
+        fill="white"
+      />
+    </svg>
+  );
+}
+
+// Tab bar icons
+function HomeTabIcon({ active }: { active: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+      <path
         d="M2 9.5L11 2.5L20 9.5V20H14.5V14H7.5V20H2V9.5Z"
-        fill={active ? "white" : "rgba(255,255,255,0.35)"}
+        fill={active ? ACCENT : "rgba(255,255,255,0.35)"}
       />
     </svg>
   );
@@ -114,7 +119,7 @@ function HomeTabIcon({ active }: { active: boolean }) {
 
 function ExchangeTabIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+    <svg width="21" height="20" viewBox="0 0 22 22" fill="none">
       <path
         d="M4 7H18M18 7L15 4M18 7L15 10"
         stroke="rgba(255,255,255,0.35)"
@@ -135,10 +140,10 @@ function ExchangeTabIcon() {
 
 function ProfileTabIcon() {
   return (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-      <circle cx="11" cy="7.5" r="4" stroke="rgba(255,255,255,0.35)" strokeWidth="1.8" />
+    <svg width="16" height="21" viewBox="0 0 16 21" fill="none">
+      <circle cx="8" cy="6" r="5" stroke="rgba(255,255,255,0.35)" strokeWidth="1.8" />
       <path
-        d="M3 20.5C3 17 6.6 14 11 14C15.4 14 19 17 19 20.5"
+        d="M1 20C1 16.69 4.13 14 8 14C11.87 14 15 16.69 15 20"
         stroke="rgba(255,255,255,0.35)"
         strokeWidth="1.8"
         strokeLinecap="round"
@@ -147,15 +152,15 @@ function ProfileTabIcon() {
   );
 }
 
-// ─── Sparkline ────────────────────────────────────────────────────────────────
+// ─── Sparkline chart ───────────────────────────────────────────────────────────
 function Sparkline({ color, up }: { color: string; up: boolean }) {
+  // Up-trending: smooth curve rising right; Down-trending: descending
   const upPath = "M0,20 C10,17 20,14 30,9 C38,5 46,8 54,3 C58,1 62,0 68,0";
   const downPath = "M0,2 C10,4 18,7 28,12 C38,17 46,13 54,18 C59,20 63,21 68,22";
   const path = up ? upPath : downPath;
-  const viewH = up ? 22 : 24;
   return (
-    <svg width="68" height={viewH} viewBox={`0 0 68 ${viewH}`} fill="none">
-      <path d={path} stroke={color} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+    <svg width="68" height="24" viewBox="0 0 68 24" fill="none">
+      <path d={path} stroke={color} strokeWidth="1.5" strokeLinecap="round" fill="none" />
     </svg>
   );
 }
@@ -170,6 +175,7 @@ function CoinRow({
   sparkUp,
   icon,
   iconBlur,
+  iconBg,
 }: {
   name: string;
   ticker: string;
@@ -179,6 +185,7 @@ function CoinRow({
   sparkUp: boolean;
   icon: React.ReactNode;
   iconBlur?: boolean;
+  iconBg?: string;
 }) {
   return (
     <div
@@ -186,29 +193,32 @@ function CoinRow({
         display: "flex",
         alignItems: "center",
         height: 45,
-        marginBottom: 30,
+        width: "100%",
       }}
     >
-      {/* Coin icon */}
+      {/* Coin icon container — 48×45 per Figma */}
       <div
         style={{
           flexShrink: 0,
-          width: 45,
+          width: 48,
           height: 45,
           borderRadius: 6,
-          background: iconBlur ? "rgba(255,255,255,0.10)" : ICON_BG,
+          background: iconBlur
+            ? "rgba(255,255,255,0.10)"
+            : iconBg ?? ICON_BG,
           backdropFilter: iconBlur ? "blur(13px)" : undefined,
+          WebkitBackdropFilter: iconBlur ? "blur(13px)" : undefined,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginRight: 12,
+          marginRight: 13,
         }}
       >
         {icon}
       </div>
 
       {/* Name + ticker */}
-      <div style={{ flex: 1 }}>
+      <div style={{ width: 80 }}>
         <p
           style={{
             margin: 0,
@@ -217,6 +227,7 @@ function CoinRow({
             color: "#ffffff",
             fontFamily: "'Poppins', sans-serif",
             lineHeight: "24px",
+            whiteSpace: "nowrap",
           }}
         >
           {name}
@@ -235,12 +246,12 @@ function CoinRow({
         </p>
       </div>
 
-      {/* Sparkline */}
-      <div style={{ marginRight: 14 }}>
+      {/* Sparkline — centered */}
+      <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
         <Sparkline color={sparkColor} up={sparkUp} />
       </div>
 
-      {/* Value + amount */}
+      {/* Value + amount — right aligned */}
       <div style={{ textAlign: "right" }}>
         <p
           style={{
@@ -250,6 +261,7 @@ function CoinRow({
             color: "#ffffff",
             fontFamily: "'Poppins', sans-serif",
             lineHeight: "24px",
+            whiteSpace: "nowrap",
           }}
         >
           {value}
@@ -262,6 +274,7 @@ function CoinRow({
             color: TEXT_MUTED,
             fontFamily: "'Poppins', sans-serif",
             lineHeight: "15px",
+            whiteSpace: "nowrap",
           }}
         >
           {amount}
@@ -279,7 +292,7 @@ export default function CryptoX() {
         <title>Crypto X — Wallet</title>
       </Head>
 
-      {/* Outer wrapper — dark page background */}
+      {/* Outer wrapper */}
       <div
         style={{
           minHeight: "100vh",
@@ -288,10 +301,9 @@ export default function CryptoX() {
           alignItems: "flex-start",
           justifyContent: "center",
           fontFamily: "'Poppins', sans-serif",
-          paddingTop: 0,
         }}
       >
-        {/* ── Mobile frame 375×812 ─────────────────────────────────────── */}
+        {/* ── Mobile frame 375×812 ──────────────────────────────────── */}
         <div
           style={{
             position: "relative",
@@ -301,9 +313,25 @@ export default function CryptoX() {
             overflow: "hidden",
           }}
         >
+          {/* ── Mesh gradient behind balance card — x=24, y=170, 327×100 ─ */}
+          <img
+            src={imgMeshGradient}
+            alt=""
+            style={{
+              position: "absolute",
+              left: 24,
+              top: 170,
+              width: 327,
+              height: 100,
+              borderRadius: 16,
+              objectFit: "cover",
+              pointerEvents: "none",
+            }}
+          />
+
           {/* ── Decorative wave lines (Group 48095464) ───────────────────
               Figma: x=-41, y=88, 450×257, opacity=0.5
-              Three sinuous colored strokes: gold / teal / blue            */}
+              Three colored stroke waves: gold / teal / blue               */}
           <svg
             style={{
               position: "absolute",
@@ -317,31 +345,31 @@ export default function CryptoX() {
             viewBox="0 0 450 257"
             fill="none"
           >
-            {/* Gold wave — Vector 9 */}
+            {/* Gold wave — Vector 9 (#F2AF1A) */}
             <path
               d="M0,185 C40,162 80,205 130,172 C180,138 220,185 272,155 C324,124 375,162 450,132"
               stroke="#f2af1a"
-              strokeWidth="1.5"
+              strokeWidth="1"
               fill="none"
             />
-            {/* Teal wave — Vector 10 */}
+            {/* Teal wave — Vector 10 (#48D4A5) */}
             <path
               d="M0,205 C45,178 88,218 138,188 C188,158 228,198 282,168 C336,138 388,174 450,148"
               stroke="#48d4a5"
-              strokeWidth="1.5"
+              strokeWidth="1"
               fill="none"
             />
-            {/* Blue wave — Vector 11 */}
+            {/* Blue wave — Vector 11 (#326CFA) */}
             <path
               d="M0,224 C50,198 92,235 144,206 C196,177 235,213 290,184 C344,154 396,190 450,165"
-              stroke="#326cf9"
-              strokeWidth="1.5"
+              stroke="#326cfa"
+              strokeWidth="1"
               fill="none"
             />
           </svg>
 
           {/* ── Status Bar — y=0, h=44 ───────────────────────────────────
-              Poppins SemiBold 600, 15px, #fff, letter-spacing -0.3px      */}
+              Poppins SemiBold 600, 15px, #fff, letter-spacing -0.3px       */}
           <div
             style={{
               position: "absolute",
@@ -352,8 +380,8 @@ export default function CryptoX() {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingLeft: 24,
-              paddingRight: 24,
+              paddingLeft: 21,
+              paddingRight: 14,
               paddingTop: 14,
             }}
           >
@@ -364,6 +392,7 @@ export default function CryptoX() {
                 color: "#ffffff",
                 fontFamily: "'Poppins', sans-serif",
                 letterSpacing: "-0.3px",
+                lineHeight: "22.5px",
               }}
             >
               09:41
@@ -425,10 +454,10 @@ export default function CryptoX() {
           </div>
 
           {/* ── User avatar — x=24, y=64, 48×48, circle ─────────────────
-              Figma image: unsplash:pAtA8xe_iVM                            */}
+              Figma: unsplash:pAtA8xe_iVM, imageRef: de000380c5...         */}
           <img
-            src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/28110822-924e-4904-94d8-17af4750bc6c"
-            alt="User avatar"
+            src={imgAvatar}
+            alt="Alex"
             style={{
               position: "absolute",
               left: 24,
@@ -440,8 +469,8 @@ export default function CryptoX() {
             }}
           />
 
-          {/* ── Settings icon — x=327, y=76, 24×24 ──────────────────────
-              Figma: settings-3-line, fill white                           */}
+          {/* ── Settings icon — right:24, top:76, 24×24 ──────────────────
+              Figma: settings-3-line, fill white                            */}
           <button
             style={{
               position: "absolute",
@@ -458,8 +487,8 @@ export default function CryptoX() {
             <SettingsIcon />
           </button>
 
-          {/* ── Greeting text — x=24, y=128 ──────────────────────────────
-              Poppins Regular 400, 24px, #9c4fff, line-height 36px         */}
+          {/* ── Greeting text — x=24, y=128, 24px ────────────────────────
+              "Hello " Regular 400, "Alex" Medium 500 — both #FFFFFF        */}
           <p
             style={{
               position: "absolute",
@@ -468,16 +497,18 @@ export default function CryptoX() {
               margin: 0,
               fontSize: 24,
               fontWeight: 400,
-              color: VIOLET,
+              color: "#ffffff",
               fontFamily: "'Poppins', sans-serif",
               lineHeight: "36px",
             }}
           >
-            Hello Alex
+            Hello{" "}
+            <span style={{ fontWeight: 500 }}>Alex</span>
           </p>
 
           {/* ── Balance Card — x=24, y=170, 327×100, radius 16 ───────────
-              White fill + mesh gradient overlay image                     */}
+              Frosted glass: rgba(255,255,255,0.24) + backdropFilter blur 20px
+              Mesh gradient image sits behind (rendered above)              */}
           <div
             style={{
               position: "absolute",
@@ -489,26 +520,14 @@ export default function CryptoX() {
               overflow: "hidden",
             }}
           >
-            {/* White base */}
+            {/* Glassmorphism overlay */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "#ffffff",
-              }}
-            />
-            {/* Mesh gradient texture overlay */}
-            <img
-              src="https://figma-alpha-api.s3.us-west-2.amazonaws.com/images/612ad878-d196-4c5b-8f9e-3e5ff7a7d6b1"
-              alt=""
-              style={{
-                position: "absolute",
-                inset: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                mixBlendMode: "overlay",
-                opacity: 0.7,
+                background: "rgba(255,255,255,0.24)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
               }}
             />
             {/* Card text content */}
@@ -516,13 +535,13 @@ export default function CryptoX() {
               style={{
                 position: "absolute",
                 inset: 0,
-                padding: "14px 20px",
+                padding: "12px 20px",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "space-between",
               }}
             >
-              {/* "Current Balance" — Poppins Regular 16px #272727 */}
+              {/* "Current Balance" — Poppins Regular 16px #272727, y:182 (top:12) */}
               <p
                 style={{
                   margin: 0,
@@ -535,16 +554,15 @@ export default function CryptoX() {
               >
                 Current Balance
               </p>
-              {/* Amount row */}
+              {/* Amount row — "$87,430.12" + 10.2% badge */}
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: 10,
-                  marginTop: 2,
                 }}
               >
-                {/* "$87,430.12" — Poppins Bold 700 24px #1d1d1d */}
+                {/* Poppins Bold 700, 24px, #1d1d1d */}
                 <p
                   style={{
                     margin: 0,
@@ -553,25 +571,23 @@ export default function CryptoX() {
                     color: "#1d1d1d",
                     fontFamily: "'Poppins', sans-serif",
                     lineHeight: "36px",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   $87,430.12
                 </p>
-                {/* 10.2% badge — Inter Bold 700 ~15px #6552fe */}
+                {/* 10.2% badge — Inter Bold ~14.8px #6552fe */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     gap: 3,
-                    background: "rgba(101,82,254,0.08)",
-                    borderRadius: 6,
-                    padding: "2px 7px 2px 5px",
                   }}
                 >
                   <ArrowUpIcon />
                   <span
                     style={{
-                      fontSize: 14,
+                      fontSize: 14.819,
                       fontWeight: 700,
                       color: ACCENT,
                       fontFamily: "'Inter', sans-serif",
@@ -585,7 +601,7 @@ export default function CryptoX() {
           </div>
 
           {/* ── Deposit button — x=26, y=288, 154×38, #6552fe, radius 16 ─
-              Poppins Regular 400, 16px, white                             */}
+              Poppins Regular 400, 16px, white, line-height 18px            */}
           <button
             style={{
               position: "absolute",
@@ -630,14 +646,14 @@ export default function CryptoX() {
           </button>
 
           {/* ── Holdings section header — y=366 ──────────────────────────
-              "Holdings": Poppins Bold 700, 20px, white
-              "See All": Poppins Medium 500, 14px, white                  */}
+              "Holdings": Poppins Bold 700, 20px, white, line-height 20px
+              "See All": Poppins Medium 500, 14px, white, underline        */}
           <div
             style={{
               position: "absolute",
               left: 0,
               right: 0,
-              top: 354,
+              top: 366,
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -663,6 +679,7 @@ export default function CryptoX() {
                 color: "#ffffff",
                 fontFamily: "'Poppins', sans-serif",
                 lineHeight: "16px",
+                textDecoration: "underline",
                 cursor: "pointer",
               }}
             >
@@ -672,16 +689,19 @@ export default function CryptoX() {
 
           {/* ── Holdings rows ─────────────────────────────────────────────
               Figma: ETH y=418, BTC y=495, LTC y=572, XRP y=649
-              Each row: 45px tall, 77px pitch                             */}
+              Each row 45px tall, 77px pitch                               */}
           <div
             style={{
               position: "absolute",
               left: 24,
               right: 24,
-              top: 400,
+              top: 418,
+              display: "flex",
+              flexDirection: "column",
+              gap: 32,
             }}
           >
-            {/* Row 1 — Ethereum */}
+            {/* Row 1 — Ethereum — ETH icon: white diamond on blurred bg */}
             <CoinRow
               name="Ethereum"
               ticker="ETH"
@@ -692,7 +712,7 @@ export default function CryptoX() {
               icon={<EthIcon />}
               iconBlur={true}
             />
-            {/* Row 2 — Bitcoin */}
+            {/* Row 2 — Bitcoin — BTC icon: white B on dark bg */}
             <CoinRow
               name="Bitcoin"
               ticker="BTC"
@@ -701,8 +721,9 @@ export default function CryptoX() {
               sparkColor={SPARKLINE_RED}
               sparkUp={false}
               icon={<BtcIcon />}
+              iconBg={ICON_BG}
             />
-            {/* Row 3 — Litecoin */}
+            {/* Row 3 — Litecoin — LTC icon: white L on dark bg */}
             <CoinRow
               name="Litecoin"
               ticker="LTC"
@@ -711,8 +732,9 @@ export default function CryptoX() {
               sparkColor={SPARKLINE_GREEN}
               sparkUp={true}
               icon={<LtcIcon />}
+              iconBg={ICON_BG}
             />
-            {/* Row 4 — Ripple/XRP */}
+            {/* Row 4 — Ripple/XRP — XRP icon: white X on dark bg */}
             <CoinRow
               name="Ripple"
               ticker="XRP"
@@ -721,12 +743,13 @@ export default function CryptoX() {
               sparkColor={SPARKLINE_GREEN}
               sparkUp={true}
               icon={<XrpIcon />}
+              iconBg={ICON_BG}
             />
           </div>
 
-          {/* ── Tab Bar — y=729, h=83, bg #121212 ────────────────────────
-              Top border: rgba(255,255,255,0.20)
-              3 tabs: Home (active), Exchange, Profile                    */}
+          {/* ── Tab Bar — y=729 (bottom:0), h=83, bg #121212 ─────────────
+              Top border: rgba(133,157,186,0.2) per Figma #849DBA 20%
+              3 tabs: Dashboard (active, #6552FE), Exchange, Profile        */}
           <div
             style={{
               position: "absolute",
@@ -735,7 +758,7 @@ export default function CryptoX() {
               right: 0,
               height: 83,
               background: TAB_BG,
-              borderTop: "1px solid rgba(255,255,255,0.20)",
+              borderTop: "1px solid rgba(132,157,186,0.2)",
             }}
           >
             <div
@@ -746,7 +769,7 @@ export default function CryptoX() {
                 paddingTop: 14,
               }}
             >
-              {/* Tab 1 — Home (active) */}
+              {/* Tab 1 — Dashboard (active) */}
               <button
                 style={{
                   background: "none",
@@ -757,18 +780,10 @@ export default function CryptoX() {
                   alignItems: "center",
                   gap: 4,
                   padding: 0,
+                  width: "33.33%",
                 }}
               >
                 <HomeTabIcon active={true} />
-                <span
-                  style={{
-                    fontSize: 10,
-                    color: "white",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  Home
-                </span>
               </button>
               {/* Tab 2 — Exchange */}
               <button
@@ -781,18 +796,10 @@ export default function CryptoX() {
                   alignItems: "center",
                   gap: 4,
                   padding: 0,
+                  width: "33.33%",
                 }}
               >
                 <ExchangeTabIcon />
-                <span
-                  style={{
-                    fontSize: 10,
-                    color: "rgba(255,255,255,0.4)",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  Exchange
-                </span>
               </button>
               {/* Tab 3 — Profile */}
               <button
@@ -805,34 +812,26 @@ export default function CryptoX() {
                   alignItems: "center",
                   gap: 4,
                   padding: 0,
+                  width: "33.33%",
                 }}
               >
                 <ProfileTabIcon />
-                <span
-                  style={{
-                    fontSize: 10,
-                    color: "rgba(255,255,255,0.4)",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  Profile
-                </span>
               </button>
             </div>
 
-            {/* Home indicator pill — 134×5, #b9c1d9, radius 100 */}
+            {/* Home indicator pill — 134×5, #B9C1D9 at 50% opacity, radius 100 */}
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: 10,
+                marginTop: 12,
               }}
             >
               <div
                 style={{
                   width: 134,
                   height: 5,
-                  background: "#b9c1d9",
+                  background: "rgba(185,193,217,0.5)",
                   borderRadius: 100,
                 }}
               />
