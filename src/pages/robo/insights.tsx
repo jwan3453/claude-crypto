@@ -68,8 +68,6 @@ function DonutChart() {
       <circle cx="55" cy="55" r={r} fill="none" stroke={R.GLASS} strokeWidth={stroke} />
       {ALLOC.map((seg, i) => {
         const dash = (seg.pct / 100) * circ;
-        const offset = circ - dash;
-        const rotation = (cumOffset / 100) * 360 - 90;
         cumOffset += seg.pct;
         return (
           <circle
